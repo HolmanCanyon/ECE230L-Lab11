@@ -7,7 +7,6 @@ module TFFCounter(
 );
 
     always @(posedge Reset) begin
-        Clock <= 0;
         FF1 <= 0;
         FF2 <= 0;
         FF3 <= 0;
