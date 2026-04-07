@@ -1,6 +1,7 @@
 module TFlipFlop(
     input Clock,
-    output reg Q,
+    input Reset,
+    output reg Q
 );
 
     initial begin
@@ -9,5 +10,10 @@ module TFlipFlop(
 
     always @(posedge Clock) begin
         Q <= ~Q;
+    end
+    
+    always begin 
+        if (Reset) 
+            Q <= 0;
     end
 endmodule
