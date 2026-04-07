@@ -14,7 +14,7 @@ In this lab, we learned how to make clock dividers from two types of counters.
 ## Names
 Canyon Holman, Cody Toone
 ## Summary
-
+This lab taught us how to precisely slow down fast clocks using 2 types of counters. We implemented a Modulo Counter as well as a Ripple Counter. To implement these, we utilized past concepts such as T Flip Flops, D Flip Flops, and adders.
 ## Lab Questions
 
 ### 1 - Why does the Modulo Counter actually divide clocks by 2 * Count?
