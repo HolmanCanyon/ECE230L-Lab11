@@ -8,8 +8,8 @@ module ModuloCounter (
     wire addin[2:0], carry[2:0], addout[2:0];
     DFlipFlop dff0(
         .clock(clock),
-        .reset(~reset | creset)
-        .D(addout[0])
+        .reset(~reset | creset),
+        .D(addout[0]),
         .Q(addin[0])
     );
 
@@ -19,12 +19,12 @@ module ModuloCounter (
         .Cin(1'b0),
         .Y(addout[0]),
         .Cout(carry[0])
-    )
+    );
 
     DFlipFlop dff1(
         .clock(clock),
-        .reset(~reset | creset)
-        .D(addout[1])
+        .reset(~reset | creset),
+        .D(addout[1]),
         .Q(addin[1])
     );
 
@@ -34,12 +34,12 @@ module ModuloCounter (
         .Cin(carry[0]),
         .Y(addout[1]),
         .Cout(carry[1])
-    )
+    );
 
     DFlipFlop dff2(
         .clock(clock),
-        .reset(~reset | creset)
-        .D(addout[2])
+        .reset(~reset | creset),
+        .D(addout[2]),
         .Q(addin[2])
     );
 
@@ -49,7 +49,7 @@ module ModuloCounter (
         .Cin(carry[1]),
         .Y(addout[2]),
         .Cout(carry[2])
-    )
+    );
 
     
 
@@ -59,4 +59,3 @@ module ModuloCounter (
         
     end
 endmodule;
-    
