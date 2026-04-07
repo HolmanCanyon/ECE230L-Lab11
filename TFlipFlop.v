@@ -1,6 +1,6 @@
 module TFlipFlop(
     input Clock,
-    output reg Q,
+    output reg Q
 );
 
     initial begin
