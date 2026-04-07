@@ -1,12 +1,12 @@
 module top(
     input btnC,
     input btnU,
-    output [5:0] led
+    output [6:0] led
 );
 
     TFFCounter TFFCounter(
         .Clock(btnC),
-        .Rest(btnU),
+        .Reset(btnU),
         .FF1(led[0]),
         .FF2(led[1]),
         .FF3(led[2])
