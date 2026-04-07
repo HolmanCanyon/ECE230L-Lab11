@@ -51,11 +51,7 @@ module ModuloCounter (
         .Cout(carry[2])
     );
 
-    
+    assign state[2:0] = addin[2:0];
 
-    always @(posedge clock) begin
-        if (addin[2] & addin[1])
-            creset <= 1'b0;
-        
-    end
+    assign creset = ~(addin[2] & addin[1]);
 endmodule;
