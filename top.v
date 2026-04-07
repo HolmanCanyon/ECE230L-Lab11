@@ -3,12 +3,6 @@ module top(
     input btnC,
     output [5:0] led
 );
-    DFlipFlop DFlipFlop(
-        .D(sw[0]),
-        .Q(led[0]),
-        .NotQ(led[1]),
-        .Clock(btnC)
-    );
 
     TFFCounter TFFCounter(
         .Clock(btnC),
