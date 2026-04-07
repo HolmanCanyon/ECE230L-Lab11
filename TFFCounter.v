@@ -6,14 +6,6 @@ module TFFCounter(
     output FF3
 );
 
-//    always begin
-//        if (~Reset) begin
-//            FF1 <= 1'b0;
-//            FF2 <= 0;
-//            FF3 <= 0;
-//        end;
-//    end
-
     TFlipFlop TFlipFlop1(
         .Q(FF1),
         .Reset(Reset),

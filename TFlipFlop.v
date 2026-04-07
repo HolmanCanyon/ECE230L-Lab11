@@ -8,8 +8,11 @@ module TFlipFlop(
         Q <= 0;
     end
 
-    always @(posedge Clock) begin
-        Q <= ~Q;
+    always @(posedge Clock or posedge Reset) begin
+        if (Reset)
+            Q <= 0;
+        else
+            Q <= ~Q;
     end
     
     always begin 
