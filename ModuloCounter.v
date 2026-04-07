@@ -51,7 +51,7 @@ module ModuloCounter (
         .Cout(carry[2])
     )
 
-    
+    assign state = addin;
 
     always @(posedge clock) begin
         if (addin[2] & addin[1])
