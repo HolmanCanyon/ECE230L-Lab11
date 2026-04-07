@@ -6,6 +6,7 @@ module top(
 
     TFFCounter TFFCounter(
         .Clock(btnC),
+        .Rest(btnU),
         .FF1(led[0]),
         .FF2(led[1]),
         .FF3(led[2])
