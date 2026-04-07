@@ -14,9 +14,4 @@ module TFlipFlop(
         else
             Q <= ~Q;
     end
-    
-    always begin 
-        if (Reset) 
-            Q <= 0;
-    end
 endmodule
