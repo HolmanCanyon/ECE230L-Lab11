@@ -6,24 +6,21 @@ module TFFCounter(
     output FF3
 );
 
-    always @(posedge Reset) begin
-        FF1 <= 0;
-        FF2 <= 0;
-        FF3 <= 0;
-    end
-
     TFlipFlop TFlipFlop1(
         .Q(FF1),
+        .Reset(Reset),
         .Clock(Clock)
     );
 
     TFlipFlop TFlipFlop2(
         .Q(FF2),
+        .Reset(Reset),
         .Clock(FF1)
     );
 
     TFlipFlop TFlipFlop3(
         .Q(FF3),
+        .Reset(Reset),
         .Clock(FF2)
     );
 
