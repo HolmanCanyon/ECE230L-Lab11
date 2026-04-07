@@ -1,6 +1,7 @@
 module DFlipFlop(
     input D,
     input Clock,
+    input reset,
     output reg Q,
     output NotQ
 );
@@ -13,4 +14,9 @@ module DFlipFlop(
         Q <= D;
 
     assign NotQ = ~Q;
+
+    always begin
+        if (~reset)
+            Q <= 1'b0;
+    end
 endmodule
