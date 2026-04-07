@@ -1,10 +1,16 @@
 module TFFCounter(
     input Clock,
+    input Reset,
     output FF1,
     output FF2,
     output FF3
 );
 
+    always @(posedge Reset) begin
+        FF1 <= 0;
+        FF2 <= 0;
+        FF3 <= 0;
+    end
 
     TFlipFlop TFlipFlop1(
         .Q(FF1),
