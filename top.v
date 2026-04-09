@@ -12,11 +12,13 @@ module top(
         .FF3(led[2])
     );
 
-    ModuloCounter mc(
-        .clock(btnC),
-        .reset(btnU),
-        .state(led[5:3]),
-        .countOut(led[6])
+    DFFCounter DFFCounter(
+        .Clock(btnC),
+        .Reset(btnU),
+        .Bit1(led[3]),
+        .Bit2(led[4]),
+        .Bit3(led[5]),
+        .Output(led[6])
     );
 
 endmodule
