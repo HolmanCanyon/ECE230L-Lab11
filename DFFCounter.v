@@ -16,21 +16,21 @@ module DFFCounter(
 
     DFlipFlop DFlipFlop1(
         .Clock(Clock),
-        .Reset(Reset),
+        .Reset(Reset | creset),
         .Q(Q1),
         .D(D1)
     );
 
     DFlipFlop DFlipFlop2(
         .Clock(Clock),
-        .Reset(Reset),
+        .Reset(Reset| creset),
         .Q(Q2),
         .D(D2)
     );
 
     DFlipFlop DFlipFlop3(
         .Clock(Clock),
-        .Reset(Reset),
+        .Reset(Reset| creset),
         .Q(Q3),
         .D(D3)
     );
@@ -38,12 +38,19 @@ module DFFCounter(
     assign Bit1 = Q1;
     assign Bit2 = Q2;
     assign Bit3 = Q3;
+    
+    reg creset;
+    
+    
 
     always @(posedge Clock or posedge Reset) begin
         if (Reset)
             Output <= 0;
-        else if (Q1 & ~Q2 & Q3)
+        else if (Q1 & ~Q2 & Q3)begin
             Output <= ~Output;
+            creset <= 1;
+        end else 
+            creset <= 0;
     end
 
 endmodule
