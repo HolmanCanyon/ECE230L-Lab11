@@ -2,13 +2,13 @@ module ModuloCounter (
     input clock,
     input reset,
     output [2:0] state,
-    output countOut
+    output reg countOut
 );
-    wire creset;
+    reg creset;
     wire carry[2:0], addout[2:0];
     DFlipFlop dff0(
         .clock(clock),
-        .reset(~reset | creset),
+        .reset(creset| reset),
         .D(addout[0]),
         .Q(state[0])
     );
@@ -23,7 +23,7 @@ module ModuloCounter (
 
     DFlipFlop dff1(
         .clock(clock),
-        .reset(~reset | creset),
+        .reset(creset| reset),
         .D(addout[1]),
         .Q(state[1])
     );
@@ -38,7 +38,7 @@ module ModuloCounter (
 
     DFlipFlop dff2(
         .clock(clock),
-        .reset(~reset | creset),
+        .reset(creset | reset),
         .D(addout[2]),
         .Q(state[2])
     );
@@ -51,15 +51,17 @@ module ModuloCounter (
         .Cout(carry[2])
     );
     
-    assign creset = ~(state[2] & state[1]);
+    
+    
 
-//    assign state = addin;
 
-//    always @(posedge clock) begin
-////        state = addin;
-//        if (addin[2] & addin[1])
-//            creset <= 1'b0;
+
+    always @(posedge clock) begin
+        if (state[2] & state[1] & state[0])begin
+            countOut = 1;
+            creset = 1;
+        end else creset = 0;
         
-//    end
+    end
 endmodule
     

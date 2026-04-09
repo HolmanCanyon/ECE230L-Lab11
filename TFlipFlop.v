@@ -1,5 +1,6 @@
 module TFlipFlop(
     input Clock,
+   // input T,
     input Reset,
     output reg Q
 );
@@ -13,10 +14,5 @@ module TFlipFlop(
             Q <= 0;
         else
             Q <= ~Q;
-    end
-    
-    always begin 
-        if (Reset) 
-            Q <= 0;
     end
 endmodule

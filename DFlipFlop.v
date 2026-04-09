@@ -10,13 +10,12 @@ module DFlipFlop(
         Q <= 0;
     end
 
-    always @(posedge clock)
-        Q <= D;
+    always @(posedge clock or posedge reset)begin
+        if (clock)
+            Q <= D;
+        if reset Q <= 0;
 
     assign NotQ = ~Q;
 
-    always begin
-        if (~reset)
-            Q <= 1'b0;
-    end
+
 endmodule
